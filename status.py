@@ -11,11 +11,13 @@ def get_status():
     from app import db
     from models import Info
     # Selenium init
-    options = webdriver.ChromeOptions()
-    options.add_argument('--ignore-certificate-errors')
-    options.add_argument('--incognito')
-    options.add_argument('--headless')
-    driver = webdriver.Chrome("/bin/chromedriver.exe", options=options)
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ['GOOGLE_CHROME_PATH']
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--ignore-certificate-errors')
+    chrome_options.add_argument('--headless')
+    driver = webdriver.Chrome(executable_path=os.environ['CHROMEDRIVER_PATH'], chrome_options=chrome_options)
     # Scrape
     driver.get('https://www.pc.gc.ca/apps/rogers-pass/print?lang=en')
     time.sleep(5)

@@ -19,7 +19,7 @@ from filters import is_valid_number, format_e164, numregex
 # Set up app and environment
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['LOCAL_DATABASE_URL'] #[PROD_DATABASE_URL]
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['PROD_DATABASE_URL']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 os.environ['TZ'] = 'UTC'
 if platform.system()!="Windows":
