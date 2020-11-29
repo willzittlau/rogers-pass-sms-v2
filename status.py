@@ -1,14 +1,21 @@
+# Import libraries
+import os
+from selenium import webdriver
+import pandas as pd
+import datetime
+import time
+import re
 
-
+# Webscrape data and add to dB
 def get_status():
+    from app import db
+    from models import Info
     # Selenium init
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.binary_location = os.environ['GOOGLE_CHROME_PATH']
-    chrome_options.add_argument('--disable-gpu')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--ignore-certificate-errors')
-    chrome_options.add_argument('--headless')
-    driver = webdriver.Chrome(executable_path=os.environ['CHROMEDRIVER_PATH'], chrome_options=chrome_options)
+    options = webdriver.ChromeOptions()
+    options.add_argument('--ignore-certificate-errors')
+    options.add_argument('--incognito')
+    options.add_argument('--headless')
+    driver = webdriver.Chrome("/bin/chromedriver.exe", options=options)
     # Scrape
     driver.get('https://www.pc.gc.ca/apps/rogers-pass/print?lang=en')
     time.sleep(5)
@@ -63,5 +70,6 @@ def get_status():
                 + '\n' + parking_closed_string + '\n' + prohibited_string)
     status_date = datetime.datetime.utcnow().date()
     # Append to dB
-    rpdata = (status, status_date)
-    return (rpdata)
+    rpdata = Info(status, status_date)
+    db.session.add(rpdata)
+    db.session.commit()

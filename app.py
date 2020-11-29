@@ -1,7 +1,6 @@
 # Import libraries
 import os
 from flask import Flask, render_template, request, url_for, flash, redirect
-from flask_httpauth import HTTPBasicAuth
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import and_
 from twilio.rest import Client
@@ -20,8 +19,8 @@ from filters import is_valid_number, format_e164, numregex
 # Set up app and environment
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
-#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
-#app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['LOCAL_DATABASE_URL'] #[PROD_DATABASE_URL]
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 os.environ['TZ'] = 'UTC'
 if platform.system()!="Windows":
     time.tzset()
@@ -32,16 +31,8 @@ auth_token = os.environ['TWILIO_AUTH_TOKEN']
 client = Client(account_sid, auth_token)
 
 # Create dB
-#db = SQLAlchemy(app)
-#from models import *
-
-# Authentication
-auth = HTTPBasicAuth()
-@auth.get_password
-def get_password(username):
-    if username == os.environ['username']:
-        return os.environ['password']
-    return None
+db = SQLAlchemy(app)
+from models import *
 
 # Home Page
 @app.route("/", methods =['GET', 'POST'])
@@ -59,20 +50,20 @@ def index():
         # Format to e.164 for dB entry
         number = format_e164(number_out)
         if is_valid_number(number) and number != '':
-            send_hello(number)
-            # # Check if user has already signed up for the udpate or not
-            # if db.session.query(User).filter(User.number == number).count() == 0:
-            #     # Append to dB
-            #     status = ''
-            #     data = User(number, status, signup_date)
-            #     db.session.add(data)
-            #     db.session.commit()
-                # Update Jinja variable
-            postsuccess = 'posted'
+            # Check if user has already signed up for the udpate or not
+            if bool(User.query.filter_by(number=number).first()) == False:
+            # Append to dB
+                status = ''
+                data = User(number, status, signup_date)
+                db.session.add(data)
+                db.session.commit()
+                # Send Message and update Jinja variable
+                send_hello(number)
+                postsuccess = 'posted'
         # Redirects with error flash
-            # else:
-            #     flash('This number has already been signed up for tomorrow\'s update!', 'error')
-            #     return redirect(url_for('index'))
+            else:
+                flash('This number has already been signed up for tomorrow\'s update!', 'error')
+                return redirect(url_for('index'))
         else:
             flash('Error: Phone number doesn\'t exist or incorrect format. Please try again!', 'error')
             return redirect(url_for('index'))
@@ -80,15 +71,40 @@ def index():
     return render_template('index.html', postsuccess=postsuccess)
 
 @app.route("/twilio", methods=['POST'])
-@auth.login_required
 def sms_reply():
     message_body = request.form['Body'].lower()
-    print(message_body)
-    if message_body.lower() == "yes":
+    number = request.form['From']
+    message_date = datetime.datetime.utcnow().date()
+    if message_body == "yes":
+        # Check if name entry exists
+        if bool(User.query.filter_by(number=number).first()) == True:
+            # Modify selected area
+            user = User.query.filter_by(number=number).first()
+            user.status = message_body
+            # Submit changes to dB
+            db.session.commit()
+        # Add entry to dB if it doesn't already exist
+        else:
+            data = User(number, message_body, message_date)
+            db.session.add(data)
+            db.session.commit()
+        # Send opt in message
         resp = MessagingResponse()
         resp.message(confirm_in())
         return str(resp)
-    if message_body.lower() == "no":
+    if message_body == "no":
+        # Check if name entry exists
+        if bool(User.query.filter_by(number=number).first()) == True:
+            # Modify selected area
+            user = User.query.filter_by(number=number).first()
+            user.status = message_body
+            # Submit changes to dB
+            db.session.commit()
+        # Add entry to dB if it doesn't already exist
+        else:
+            data = User(number, message_body, message_date)
+            db.session.add(data)
+            db.session.commit()
         resp = MessagingResponse()
         resp.message(confirm_out())
         return str(resp)

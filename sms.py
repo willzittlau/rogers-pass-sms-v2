@@ -1,28 +1,26 @@
 from status import get_status
+import datetime
 import os
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import and_
 
 # Send SMS
-def send_update(number):
+def send_update():
     from app import client
+    from app import db
+    from models import Info, User
     # Return contents for sms message
     todays_date = datetime.datetime.utcnow().date()
-    # daily_update_sms = db.session.query(Info.status).filter(Info.status_date == todays_date).limit(1).scalar()
-    # daily_update_sms = daily_update_sms.replace('\n', '\n\n')
-    daily_update_sms = get_status()
-    # # Find list of numbers to send sms to
-    # daily_numbers = db.session.query(User.number.distinct()).filter(and_(User.status="yes")).all()
-    # daily_numbers = [r for r, in daily_numbers]
-    # for number in daily_numbers:
-    #     message = client.messages.create(
-    #         from_=os.environ['TWILIO_NUMBER'],
-    #         to=number,
-    #         body=daily_update_sms
-    #     )
-    message = client.messages.create(
+    daily_update_sms = db.session.query(Info.status).filter(Info.status_date == todays_date).limit(1).scalar()
+    daily_update_sms = daily_update_sms.replace('\n', '\n\n')
+    # Find list of numbers to send sms to
+    daily_numbers = User.query.filter_by(status="yes").all()
+    for number in daily_numbers:
+        message = client.messages.create(
         from_=os.environ['TWILIO_NUMBER'],
-        to=number,
+        to=number.number,
         body=daily_update_sms
-    )
+        )
 
 def send_hello(number):
     from app import client

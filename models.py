@@ -6,7 +6,7 @@ class User(db.Model):
     number = db.Column(db.String())
     status = db.Column(db.String())
     signup_date = db.Column(db.Date())
-    def __init__(self, number, signup_date):
+    def __init__(self, number, status, signup_date):
         self.number = number
         self.status = status
         self.signup_date = signup_date
