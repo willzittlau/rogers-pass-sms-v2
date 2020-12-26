@@ -1,77 +1,125 @@
 # Import libraries
-import os
-from selenium import webdriver
-import pandas as pd
+import requests
 import datetime
-import time
-import re
+from dateutil import tz
+#keys: ['areas'], ['parkingLots']. sub keys: ['properties']: ['nameEn'], ['isOpen'], ['id'], ['parentFeatureId']
+class WRA:  
+    def __init__(self, name, isOpen, wraID):
+        self.name = name
+        self.isOpen = isOpen
+        self.wraID = wraID
 
-# Webscrape data and add to dB
 def get_status():
     from app import db
     from models import Info
-    # Selenium init
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.binary_location = os.environ['GOOGLE_CHROME_PATH']
-    chrome_options.add_argument('--disable-gpu')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--ignore-certificate-errors')
-    chrome_options.add_argument('--headless')
-    driver = webdriver.Chrome(executable_path=os.environ['CHROMEDRIVER_PATH'], chrome_options=chrome_options)
-    # Scrape
-    driver.get('https://www.pc.gc.ca/apps/rogers-pass/print?lang=en')
-    time.sleep(5)
-    page_source = driver.page_source
-    statusDate = driver.find_element_by_id('publishDate').text
-    driver.quit()
-    # Save data
-    tables = pd.read_html(page_source)
-    wra_table = pd.DataFrame(tables[0])
-    parking_table = pd.DataFrame(tables[1])
-    prohibited_table = pd.DataFrame(tables[2])
-    # Initialise strings
-    title_string = statusDate + ':'
-    wra_open_string = 'Open WRAs: '
-    wra_closed_string = 'Closed WRAs: '
-    parking_open_string = 'Open Parking: '
-    parking_closed_string = 'Closed Parking: '
-    prohibited_string = 'Prohibited Areas: '
-    # String concatenation for WRA table
-    for i in range (0, len(wra_table['Winter Restricted Area'])):
-        if wra_table.at[i, 'Status'].startswith('O'):
-            wra_table.at[i, 'Status'] = wra_table.at[i, 'Status'][:4]
-            wra_open_string += (wra_table.at[i, 'Winter Restricted Area'] + ', ')
-        if wra_table.at[i, 'Status'].startswith('C'):
-            wra_table.at[i, 'Status'] = wra_table.at[i, 'Status'][:6]
-            wra_closed_string += wra_table.at[i, 'Status'] + '\n'
-    if not wra_open_string.endswith(': '):
-        wra_open_string = wra_open_string[:-2]
-    if not wra_closed_string.endswith(': '):
-        wra_closed_string = wra_closed_string[:-2]
-    # String concatenation for Parking table
-    for i in range (0, len(parking_table['Parking area'])):
-        parking_table.at[i,'Parking area'] = parking_table.at[i,'Parking area'].replace(' Parking', '')
-        if parking_table.at[i, 'Status'].startswith('O'):
-            parking_table.at[i, 'Status'] = parking_table.at[i, 'Status'][:4]
-            parking_open_string += (parking_table.at[i, 'Parking area'] + ', ')
-        if parking_table.at[i, 'Status'].startswith('C'):
-            parking_table.at[i, 'Status'] = parking_table.at[i, 'Status'][:6]
-            parking_closed_string += parking_table.at[i, 'Status'] + '\n'
-    if not parking_open_string.endswith(': '):
-        parking_open_string = parking_open_string[:-2]
-    if not parking_closed_string.endswith(': '):
-        parking_closed_string = parking_closed_string[:-2]
-    # String concatenation for Prohibited table
-    for i in range (0, len(prohibited_table['Winter Prohibited Area'])):
-        prohibited_string += (prohibited_table.at[i, 'Winter Prohibited Area'] + ', ')
-    if not prohibited_string.endswith(': '):
-        prohibited_string = prohibited_string[:-2]
-    # Concat and save results for dB
-    status = (title_string + '\n' + wra_open_string 
-                + '\n' + wra_closed_string + '\n' + parking_open_string 
-                + '\n' + parking_closed_string + '\n' + prohibited_string)
-    status_date = datetime.datetime.utcnow().date()
-    # Append to dB
-    rpdata = Info(status, status_date)
-    db.session.add(rpdata)
-    db.session.commit()
+    tz = tz.gettz('America/Vancouver')
+    date = datetime.datetime.now(tz).strftime('%Y-%m-%d')
+    data=requests.get('https://www.pc.gc.ca/apps/rogers-pass/data/publish-%s' %date).json()
+    # Not available:
+    if data == {'error': 'not_found', 'reason': 'missing'}:
+        output = 'Info for today is not available'
+        return output
+    else: 
+        # Date 
+        rawDate = data['validFrom']['PST'].split('T')[0]
+        rawTime = data['validFrom']['PST'].split('T')[1].split('-')[0][:-3]
+        statusDate = rawDate + '@' + rawTime
+        titleStr = 'Status for ' + statusDate + ':'
+        # Shaughnessy
+        shaughnessy = WRA(data['areas'][0]['properties']['nameEn'], data['areas'][0]['properties']['isOpen'], data['areas'][0]['properties']['id'])
+        # East Rogers
+        eastRogersNorth = WRA(data['areas'][1]['properties']['nameEn'], data['areas'][1]['properties']['isOpen'], data['areas'][1]['properties']['id'])
+        eastRogersSouth = WRA(data['areas'][2]['properties']['nameEn'], data['areas'][2]['properties']['isOpen'], data['areas'][2]['properties']['id'])
+        eastRogers = [eastRogersNorth, eastRogersSouth]
+        # West Rogers
+        westRogersWest = WRA(data['areas'][3]['properties']['nameEn'], data['areas'][3]['properties']['isOpen'], data['areas'][3]['properties']['id'])
+        westRogersSouth = WRA(data['areas'][4]['properties']['nameEn'], data['areas'][4]['properties']['isOpen'], data['areas'][4]['properties']['id'])
+        westRogersNorthEast = WRA(data['areas'][5]['properties']['nameEn'], data['areas'][5]['properties']['isOpen'], data['areas'][5]['properties']['id'])
+        westRogers = [westRogersWest, westRogersSouth, westRogersNorthEast]
+        # Fortitude
+        fortitude = WRA(data['areas'][6]['properties']['nameEn'], data['areas'][6]['properties']['isOpen'], data['areas'][6]['properties']['id'])
+        closedWRA = 'Closed WRAs:  '
+        openWRA = 'Open WRAs:  '
+        ERbool =[]
+        WRbool= []
+        for area in eastRogers:
+            ERbool.append(area.isOpen)
+        if all(ERbool) == True:
+            openWRA += 'East Rogers, '
+        else:
+            closedWRA += 'East Rogers, '
+        for area in westRogers:
+            ERbool.append(area.isOpen)
+        if all(ERbool) == True:
+            openWRA += 'West Rogers, '
+        else:
+            closedWRA += 'West Rogers, '
+        if fortitude.isOpen == True:
+            openWRA += (fortitude.name + ', ')
+        else:
+            closedWRA += (fortitude.name + ', ')
+        if shaughnessy.isOpen == True:
+            openWRA += (shaughnessy.name + ', ')
+        else:
+            closedWRA += (shaughnessy.name + ', ')
+        # Zones
+        closedZone = 'Closed Areas:  '
+        openZone = 'Open Areas:  '
+        for area in data['areas']:
+            try:
+                if (area['properties']['parentFeatureId'] == shaughnessy.wraID):
+                    if shaughnessy.isOpen == True and area['properties']['isOpen'] == True:
+                        openZone += (area['properties']['nameEn'] + ', ')
+                    else:
+                        closedZone += (area['properties']['nameEn'] + ', ')
+                if (area['properties']['parentFeatureId'] == eastRogersNorth.wraID):
+                    if eastRogersNorth.isOpen == True and area['properties']['isOpen'] == True:
+                        openZone += (area['properties']['nameEn'] + ', ')
+                    else:
+                        closedZone += (area['properties']['nameEn'] + ', ')
+                if (area['properties']['parentFeatureId'] == eastRogersSouth.wraID):
+                    if eastRogersSouth.isOpen == True and area['properties']['isOpen'] == True:
+                        openZone += (area['properties']['nameEn'] + ', ')
+                    else:
+                        closedZone += (area['properties']['nameEn'] + ', ')
+                if (area['properties']['parentFeatureId'] == westRogersWest.wraID):
+                    if westRogersWest.isOpen == True and area['properties']['isOpen'] == True:
+                        openZone += (area['properties']['nameEn'] + ', ')
+                    else:
+                        closedZone += (area['properties']['nameEn'] + ', ')
+                if (area['properties']['parentFeatureId'] == westRogersSouth.wraID):
+                    if westRogersSouth.isOpen == True and area['properties']['isOpen'] == True:
+                        openZone += (area['properties']['nameEn'] + ', ')
+                    else:
+                        closedZone += (area['properties']['nameEn'] + ', ')
+                if (area['properties']['parentFeatureId'] == westRogersNorthEast.wraID):
+                    if westRogersNorthEast.isOpen == True and area['properties']['isOpen'] == True:
+                        openZone += (area['properties']['nameEn'] + ', ')
+                    else:
+                        closedZone += (area['properties']['nameEn'] + ', ')
+                if (area['properties']['parentFeatureId'] == fortitude.wraID):
+                    if fortitude.isOpen == True and area['properties']['isOpen'] == True:
+                        openZone += (area['properties']['nameEn'] + ', ')
+                    else:
+                        closedZone += (area['properties']['nameEn'] + ', ')
+            except:
+                pass
+        # Parking
+        closedParking = 'Closed Parking:  '
+        openParking = 'Open Parking:  '
+        for parking in data['parkingLots']:
+            if parking['properties']['isOpen'] == True:
+                openParking += (parking['properties']['nameEn'] + ', ')
+            else:
+                closedParking += (parking['properties']['nameEn'] + ', ')
+        
+        # Concat and save results for dB
+        status = (titleStr + '\n' + openWRA[:-2] 
+                    + '\n' + closedWRA[:-2] + '\n' + openZone[:-2] 
+                    + '\n' + closedZone[:-2] + '\n' + openParking[:-2]
+                    + '\n' + closedParking[:-2])
+        status_date = datetime.datetime.utcnow().date()
+        # Append to dB
+        rpdata = Info(status, status_date)
+        db.session.add(rpdata)
+        db.session.commit()

@@ -1,0 +1,1049 @@
+{
+  "_id": "publish-2020-12-10",
+  "_rev": "1-ee8dda329313e5f4983d54ec79468b98",
+  "validFrom": {
+      "PST": "2020-12-10T06:42:14-08:00",
+      "UTC": "2020-12-10T14:42:14Z"
+  },
+  "validUntil": {
+      "PST": "2020-12-11T00:00:00-08:00",
+      "UTC": "2020-12-11T08:00:00Z"
+  },
+  "userName": "Andrew Jones",
+  "areas": [
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Area:5c2f4842-01d9-4301-b131-3ee88d9e4c31",
+              "nameEn": "Shaughnessy",
+              "nameFr": "Shaughnessy",
+              "type": "Polygon",
+              "group": "R",
+              "isOpen": true,
+              "isOpenYesterday": true,
+              "commentEn": "<p>Follow the&nbsp;<a href=\"http://www.pc.gc.ca/en/pn-np/bc/glacier/visit/hiver-winter/ski/designes-access#Shaughnessy\" target=\"_blank\" rel=\"noopener\">Shaughnessy Designated Access Route</a>&nbsp;to avoid trespassing on CP Property</p>",
+              "commentFr": "<p>Suivez les&nbsp;<a href=\"http://www.pc.gc.ca/en/pn-np/bc/glacier/visit/hiver-winter/ski/designes-access#Shaughnessy\" target=\"_blank\" rel=\"noopener\">parcours d&eacute;sign&eacute;s Shaughnessy</a>&nbsp;pour &eacute;viter d&rsquo;entrer sans autorisation sur les propri&eacute;t&eacute;s du Canadien Pacifique.</p>",
+              "centerCoordinates": [
+                  -117.49058783054352,
+                  51.37444847339507
+              ],
+              "sortOrder": 1,
+              "relatedParkingLotIds": [
+                  "Parking:a700e40b-2347-473e-8d41-a729d87d3db9",
+                  "Parking:347cec79-2d5c-4a5d-9157-94a93d697a2f"
+              ],
+              "relatedWebcamIds": [
+                  "Webcam:556e2328-51cb-4f49-a560-0ff4224a7e30",
+                  "Webcam:fdfbcb4fb5a3cc1de91ccbcc51049daa"
+              ],
+              "iconPrefix": "Shaughnessy",
+              "iconWidthEn": 223,
+              "iconWidthFr": 223,
+              "iconAlignment": "L",
+              "iconWidthSmFr": 163,
+              "iconWidthSmEn": 163
+          },
+          "geometry": "AreaGeometry:5c2f4842-01d9-4301-b131-3ee88d9e4c31"
+      },
+      {
+          "properties": {
+              "group": "R",
+              "sortOrder": 2,
+              "nameEn": "East Rogers (N)",
+              "nameFr": "East Rogers (N)",
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.525369,
+                  51.336573
+              ],
+              "id": "Area:883127c5-e789-49dc-bba6-136318459b64",
+              "iconWidthSmFr": 140,
+              "iconWidthSmEn": 151,
+              "iconWidthFr": 185,
+              "iconWidthEn": 201,
+              "block": {
+                  "id": "Block:99ea6961-3eb9-4100-a91d-46bcfb7135c5",
+                  "nameEn": "East Rogers",
+                  "nameFr": "Rogers Est"
+              }
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:883127c5-e789-49dc-bba6-136318459b64"
+      },
+      {
+          "properties": {
+              "group": "R",
+              "sortOrder": 3,
+              "nameEn": "East Rogers (S)",
+              "nameFr": "East Rogers (S)",
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.46395349502563,
+                  51.31082824780952
+              ],
+              "id": "Area:2e673c37-f1a7-4cc4-bf01-019c355fab20",
+              "iconWidthSmFr": 140,
+              "iconWidthEn": 201,
+              "iconWidthSmEn": 151,
+              "iconWidthFr": 185,
+              "block": {
+                  "id": "Block:99ea6961-3eb9-4100-a91d-46bcfb7135c5",
+                  "nameEn": "East Rogers",
+                  "nameFr": "Rogers Est"
+              }
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:2e673c37-f1a7-4cc4-bf01-019c355fab20"
+      },
+      {
+          "properties": {
+              "group": "R",
+              "sortOrder": 4,
+              "nameEn": "West Rogers (W)",
+              "nameFr": "West Rogers (W)",
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.64,
+                  51.261714
+              ],
+              "id": "Area:24c986f3-4937-461b-848f-750fd2ac6140",
+              "iconWidthSmEn": 154,
+              "iconWidthSmFr": 154,
+              "iconWidthEn": 210,
+              "iconWidthFr": 210,
+              "block": {
+                  "id": "Block:bef7a206-0067-4a63-99e9-3b325baaf0a1",
+                  "nameEn": "West Rogers",
+                  "nameFr": "Rogers Ouest"
+              },
+              "iconAlignment": "R"
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:24c986f3-4937-461b-848f-750fd2ac6140"
+      },
+      {
+          "properties": {
+              "group": "R",
+              "sortOrder": 5,
+              "nameEn": "West Rogers (S)",
+              "nameFr": "West Rogers (S)",
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.613632,
+                  51.238293
+              ],
+              "id": "Area:9bde6e36-5335-4f45-89b8-76bba7da27ec",
+              "iconWidthEn": 211,
+              "iconWidthSmEn": 155,
+              "iconWidthFr": 223,
+              "iconWidthSmFr": 164,
+              "block": {
+                  "id": "Block:bef7a206-0067-4a63-99e9-3b325baaf0a1",
+                  "nameEn": "West Rogers",
+                  "nameFr": "Rogers Ouest"
+              },
+              "iconAlignment": "L"
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:9bde6e36-5335-4f45-89b8-76bba7da27ec"
+      },
+      {
+          "properties": {
+              "group": "R",
+              "sortOrder": 6,
+              "nameEn": "West Rogers (NE)",
+              "nameFr": "West Rogers (NE)",
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.489753,
+                  51.281917
+              ],
+              "id": "Area:089fb05d-13b5-4e99-8efd-99c8a4ed2f07",
+              "iconWidthEn": 211,
+              "iconWidthSmEn": 155,
+              "iconWidthFr": 223,
+              "iconWidthSmFr": 164,
+              "block": {
+                  "id": "Block:bef7a206-0067-4a63-99e9-3b325baaf0a1",
+                  "nameEn": "West Rogers",
+                  "nameFr": "Rogers Ouest"
+              }
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:089fb05d-13b5-4e99-8efd-99c8a4ed2f07"
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Area:8804c2ce-5cf3-4195-a741-d3a163007daf",
+              "nameEn": "Fortitude",
+              "nameFr": "Fortitude",
+              "type": "Polygon",
+              "group": "R",
+              "isOpen": false,
+              "isOpenYesterday": true,
+              "commentEn": "<p>Follow the&nbsp;<a href=\"http://www.pc.gc.ca/en/pn-np/bc/glacier/visit/hiver-winter/ski/designes-access#Flat\" target=\"_blank\" rel=\"noopener\">Flat Creek Designated Access Route</a>&nbsp;to avoid trespassing on CP Property</p>",
+              "commentFr": "<p>Suivez les&nbsp;<a href=\"http://www.pc.gc.ca/fr/pn-np/bc/glacier/visit/hiver-winter/ski/designes-access#Flat\" target=\"_blank\" rel=\"noopener\">parcours d&eacute;sign&eacute;s du ruisseau Flat</a>&nbsp;pour &eacute;viter d&rsquo;entrer sans autorisation sur les propri&eacute;t&eacute;s du Canadien Pacifique.</p>",
+              "centerCoordinates": [
+                  -117.69469320774078,
+                  51.19418010375095
+              ],
+              "sortOrder": 7,
+              "relatedParkingLotIds": [
+                  "Parking:f817faf2-273c-4294-b12d-363db7b6d14c"
+              ],
+              "iconPrefix": "Fortitude",
+              "iconWidthEn": 175,
+              "iconWidthFr": 175,
+              "iconAlignment": "L",
+              "iconWidthSmFr": 129,
+              "iconWidthSmEn": 129
+          },
+          "geometry": "AreaGeometry:8804c2ce-5cf3-4195-a741-d3a163007daf"
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Area:b0f8db54-e081-4d70-baf6-78c1d549ae43",
+              "nameEn": "Unrestricted Area",
+              "nameFr": "Zone d'accès non restreint",
+              "type": "Polygon",
+              "group": "U",
+              "isOpen": true,
+              "isOpenYesterday": true,
+              "commentEn": "",
+              "commentFr": "",
+              "centerCoordinates": [
+                  -117.48,
+                  51.18
+              ],
+              "sortOrder": 8,
+              "iconWidthEn": 287,
+              "iconWidthFr": 402,
+              "iconPrefix": "Unrestricted Area",
+              "iconAlignment": "L",
+              "iconWidthSmFr": 293,
+              "iconWidthSmEn": 210
+          },
+          "geometry": "AreaGeometry:b0f8db54-e081-4d70-baf6-78c1d549ae43"
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Area:4e700cf5-44ea-4a3b-98f7-c3376449460f",
+              "nameEn": "Unrestricted Area",
+              "nameFr": "Zone d'accès non restreint",
+              "type": "Polygon",
+              "group": "U",
+              "isOpen": true,
+              "isOpenYesterday": true,
+              "commentEn": "",
+              "commentFr": "",
+              "centerCoordinates": [
+                  -117.64,
+                  51.36
+              ],
+              "sortOrder": 9,
+              "iconWidthFr": 402,
+              "iconWidthEn": 287,
+              "iconPrefix": "Unrestricted Area",
+              "iconAlignment": "R",
+              "iconWidthSmFr": 293,
+              "iconWidthSmEn": 210
+          },
+          "geometry": "AreaGeometry:4e700cf5-44ea-4a3b-98f7-c3376449460f"
+      },
+      {
+          "properties": {
+              "group": "S",
+              "sortOrder": 13,
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.572,
+                  51.244
+              ],
+              "id": "Area:1fc8d889-52a9-400d-a7b5-2871e71b479b",
+              "parentFeatureId": "Area:089fb05d-13b5-4e99-8efd-99c8a4ed2f07",
+              "iconWidthEn": 106,
+              "iconWidthFr": 106,
+              "nameEn": "Ross",
+              "nameFr": "Ross"
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:1fc8d889-52a9-400d-a7b5-2871e71b479b"
+      },
+      {
+          "properties": {
+              "group": "S",
+              "sortOrder": 14,
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.628,
+                  51.234
+              ],
+              "id": "Area:8ad3d4c6-d738-4338-a4b9-efa10f41d77d",
+              "parentFeatureId": "Area:089fb05d-13b5-4e99-8efd-99c8a4ed2f07",
+              "iconWidthEn": 123,
+              "iconWidthFr": 123,
+              "nameEn": "Smart",
+              "nameFr": "Smart"
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:8ad3d4c6-d738-4338-a4b9-efa10f41d77d"
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Area:3aaf64ec-8d20-43fe-8701-f010d7eba08c",
+              "nameEn": "Heather Hill",
+              "nameFr": "Heather Hill",
+              "type": "Polygon",
+              "group": "P",
+              "isOpen": false,
+              "isOpenYesterday": false,
+              "commentEn": "",
+              "commentFr": "",
+              "centerCoordinates": [
+                  -117.47668325901031,
+                  51.447149481256915
+              ],
+              "sortOrder": 15,
+              "iconPrefix": "Heather Hill",
+              "iconWidthEn": 208,
+              "iconWidthFr": 208,
+              "iconAlignment": "L",
+              "iconWidthSmEn": 153,
+              "iconWidthSmFr": 153
+          },
+          "geometry": "AreaGeometry:3aaf64ec-8d20-43fe-8701-f010d7eba08c"
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Area:e44ec190-d7dc-487b-b217-c8e8c2d877bd",
+              "nameEn": "Cutbank",
+              "nameFr": "Cutbank",
+              "type": "Polygon",
+              "group": "P",
+              "isOpen": false,
+              "isOpenYesterday": false,
+              "commentEn": "",
+              "commentFr": "",
+              "centerCoordinates": [
+                  -117.49196112155914,
+                  51.39319689992006
+              ],
+              "sortOrder": 16,
+              "iconPrefix": "Cutbank",
+              "iconWidthEn": 154,
+              "iconWidthFr": 154,
+              "iconAlignment": "L",
+              "iconWidthSmEn": 114,
+              "iconWidthSmFr": 114
+          },
+          "geometry": "AreaGeometry:e44ec190-d7dc-487b-b217-c8e8c2d877bd"
+      },
+      {
+          "properties": {
+              "group": "S",
+              "sortOrder": 16,
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.525,
+                  51.245
+              ],
+              "id": "Area:429123a3-f389-4419-8b71-494e40180e99",
+              "parentFeatureId": "Area:089fb05d-13b5-4e99-8efd-99c8a4ed2f07",
+              "iconWidthEn": 104,
+              "iconWidthFr": 104,
+              "nameEn": "Loop",
+              "nameFr": "Loop"
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:429123a3-f389-4419-8b71-494e40180e99"
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Area:22e0c556-ac77-4264-b5e3-17027844c682",
+              "nameEn": "Macdonald West",
+              "nameFr": "Macdonald West",
+              "type": "Polygon",
+              "group": "P",
+              "isOpen": false,
+              "isOpenYesterday": false,
+              "commentEn": "",
+              "commentFr": "",
+              "centerCoordinates": [
+                  -117.507161,
+                  51.30122
+              ],
+              "sortOrder": 17,
+              "iconPrefix": "Macdonald West",
+              "iconWidthEn": 261,
+              "iconWidthFr": 261,
+              "iconAlignment": "L",
+              "iconWidthSmFr": 191,
+              "iconWidthSmEn": 191
+          },
+          "geometry": "AreaGeometry:22e0c556-ac77-4264-b5e3-17027844c682"
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Area:84ac9d9a-f2f8-4114-a78b-3166e6a6e995",
+              "nameEn": "Abbott",
+              "nameFr": "Abbott",
+              "type": "Polygon",
+              "group": "P",
+              "isOpen": false,
+              "isOpenYesterday": false,
+              "commentEn": "",
+              "commentFr": "",
+              "centerCoordinates": [
+                  -117.51599371433258,
+                  51.257177261327044
+              ],
+              "relatedWebcamIds": [
+                  "Webcam:556e2328-51cb-4f49-a560-0ff4224a7e30"
+              ],
+              "sortOrder": 18,
+              "relatedParkingLotIds": [
+                  "Parking:75b6c01f-61c9-4f32-8a2c-9218518c0326"
+              ],
+              "iconPrefix": "Abbott",
+              "iconWidthEn": 134,
+              "iconWidthFr": 134,
+              "iconAlignment": "L",
+              "iconWidthSmFr": 99,
+              "iconWidthSmEn": 99
+          },
+          "geometry": "AreaGeometry:84ac9d9a-f2f8-4114-a78b-3166e6a6e995"
+      },
+      {
+          "properties": {
+              "group": "S",
+              "sortOrder": 18,
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.552,
+                  51.291
+              ],
+              "id": "Area:d2ed1a69-8d7e-4e4d-8bfd-8faa6f511659",
+              "parentFeatureId": "Area:24c986f3-4937-461b-848f-750fd2ac6140",
+              "iconWidthEn": 224,
+              "iconWidthFr": 224,
+              "nameEn": "Cheops North",
+              "nameFr": "Cheops North"
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:d2ed1a69-8d7e-4e4d-8bfd-8faa6f511659"
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Area:496da8fe-50f8-444e-9c0c-554376e9c152",
+              "nameEn": "Cougar",
+              "nameFr": "Cougar",
+              "type": "Polygon",
+              "group": "P",
+              "isOpen": false,
+              "isOpenYesterday": false,
+              "commentEn": "",
+              "commentFr": "",
+              "centerCoordinates": [
+                  -117.58534491062164,
+                  51.261581685002156
+              ],
+              "sortOrder": 19,
+              "iconPrefix": "Cougar",
+              "iconWidthEn": 141,
+              "iconWidthFr": 141,
+              "iconAlignment": "L",
+              "iconWidthSmEn": 104,
+              "iconWidthSmFr": 104
+          },
+          "geometry": "AreaGeometry:496da8fe-50f8-444e-9c0c-554376e9c152"
+      },
+      {
+          "properties": {
+              "group": "S",
+              "sortOrder": 19,
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.538,
+                  51.275
+              ],
+              "id": "Area:4b4604ff-842f-40fc-ad0b-949a64597e59",
+              "parentFeatureId": "Area:24c986f3-4937-461b-848f-750fd2ac6140",
+              "iconWidthEn": 138,
+              "iconWidthFr": 138,
+              "nameEn": "Cheops",
+              "nameFr": "Cheops"
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:4b4604ff-842f-40fc-ad0b-949a64597e59"
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Area:0b5ced01-31ff-44d6-be37-40950ca5ffd1",
+              "nameEn": "Fidelity",
+              "nameFr": "Fidelity",
+              "type": "Polygon",
+              "group": "P",
+              "isOpen": false,
+              "isOpenYesterday": false,
+              "commentEn": "",
+              "commentFr": "",
+              "centerCoordinates": [
+                  -117.706971,
+                  51.23119
+              ],
+              "relatedParkingLotIds": [
+                  "Parking:f817faf2-273c-4294-b12d-363db7b6d14c"
+              ],
+              "relatedWebcamIds": [
+                  "Webcam:fdfbcb4fb5a3cc1de91ccbcc51049daa"
+              ],
+              "sortOrder": 20,
+              "iconPrefix": "Fidelity",
+              "iconWidthEn": 143,
+              "iconWidthFr": 143,
+              "iconAlignment": "L",
+              "iconWidthSmFr": 106,
+              "iconWidthSmEn": 106
+          },
+          "geometry": "AreaGeometry:0b5ced01-31ff-44d6-be37-40950ca5ffd1"
+      },
+      {
+          "properties": {
+              "group": "S",
+              "sortOrder": 20,
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.675,
+                  51.255
+              ],
+              "id": "Area:acb67209-2077-4b2f-b20d-4c3f866c17ca",
+              "parentFeatureId": "Area:24c986f3-4937-461b-848f-750fd2ac6140",
+              "iconWidthEn": 129,
+              "iconWidthFr": 129,
+              "nameEn": "McGill",
+              "nameFr": "McGill"
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:acb67209-2077-4b2f-b20d-4c3f866c17ca"
+      },
+      {
+          "properties": {
+              "group": "S",
+              "sortOrder": 21,
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.63,
+                  51.263
+              ],
+              "id": "Area:6a4981a0-22ec-4308-8d32-fc23da63044e",
+              "parentFeatureId": "Area:24c986f3-4937-461b-848f-750fd2ac6140",
+              "iconWidthEn": 180,
+              "iconWidthFr": 180,
+              "nameEn": "Camp West",
+              "nameFr": "Camp West"
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:6a4981a0-22ec-4308-8d32-fc23da63044e"
+      },
+      {
+          "properties": {
+              "group": "S",
+              "sortOrder": 101,
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.462,
+                  51.313
+              ],
+              "id": "Area:e79762d6-a29a-4ad3-b60c-0de3ec1556ad",
+              "parentFeatureId": "Area:883127c5-e789-49dc-bba6-136318459b64",
+              "iconWidthEn": 191,
+              "iconWidthFr": 191,
+              "nameEn": "Macdonald",
+              "nameFr": "Macdonald"
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:e79762d6-a29a-4ad3-b60c-0de3ec1556ad"
+      },
+      {
+          "properties": {
+              "group": "S",
+              "sortOrder": 101,
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.488,
+                  51.282
+              ],
+              "id": "Area:3591480f-4f1f-43c2-9979-f51d049ba11e",
+              "parentFeatureId": "Area:9bde6e36-5335-4f45-89b8-76bba7da27ec",
+              "iconWidthEn": 184,
+              "iconWidthFr": 184,
+              "nameEn": "Avalanche",
+              "nameFr": "Avalanche"
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:3591480f-4f1f-43c2-9979-f51d049ba11e"
+      },
+      {
+          "properties": {
+              "group": "S",
+              "sortOrder": 101,
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.475,
+                  51.339
+              ],
+              "id": "Area:1f39b09e-a9f1-4b2d-805d-44707409543c",
+              "parentFeatureId": "Area:2e673c37-f1a7-4cc4-bf01-019c355fab20",
+              "iconWidthEn": 133,
+              "iconWidthFr": 133,
+              "nameEn": "Tupper",
+              "nameFr": "Tupper"
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:1f39b09e-a9f1-4b2d-805d-44707409543c"
+      },
+      {
+          "properties": {
+              "group": "S",
+              "sortOrder": 102,
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.532,
+                  51.331
+              ],
+              "id": "Area:e891bce7-8350-45dd-9829-80fb6db88ba5",
+              "parentFeatureId": "Area:2e673c37-f1a7-4cc4-bf01-019c355fab20",
+              "iconWidthEn": 131,
+              "iconWidthFr": 131,
+              "nameEn": "Hermit",
+              "nameFr": "Hermit"
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:e891bce7-8350-45dd-9829-80fb6db88ba5"
+      },
+      {
+          "properties": {
+              "group": "S",
+              "sortOrder": 102,
+              "commentEn": "<p>A section of the West Rogers Winter Restricted Area is closed due to ski tracks accessing the Macdonald Winter Prohibited Area from the WRA</p>",
+              "commentFr": "<p>Une partie de la zone &agrave; acc&egrave;s restreint Rogers Ouest est ferm&eacute;e en raison de pistes de ski acc&eacute;dant &agrave; la zone interdite Macdonald West.</p>",
+              "isOpen": false,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.498331,
+                  51.291559
+              ],
+              "id": "Area:27ed5465-a611-4e36-a4f2-3a7547aed1b3",
+              "parentFeatureId": "Area:9bde6e36-5335-4f45-89b8-76bba7da27ec",
+              "iconWidthFr": 92,
+              "iconWidthEn": 100,
+              "nameEn": "NRC",
+              "nameFr": "NRC"
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:27ed5465-a611-4e36-a4f2-3a7547aed1b3"
+      },
+      {
+          "properties": {
+              "group": "S",
+              "sortOrder": 103,
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": [
+                  -117.539,
+                  51.306
+              ],
+              "id": "Area:93f25ea8-214c-4493-b09b-91bb90c70ab5",
+              "parentFeatureId": "Area:2e673c37-f1a7-4cc4-bf01-019c355fab20",
+              "iconWidthEn": 271,
+              "iconWidthFr": 271,
+              "nameEn": "Grizzly Shoulder",
+              "nameFr": "Grizzly Shoulder"
+          },
+          "type": "Feature",
+          "geometry": "AreaGeometry:93f25ea8-214c-4493-b09b-91bb90c70ab5"
+      }
+  ],
+  "parkingLots": [
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Parking:a700e40b-2347-473e-8d41-a729d87d3db9",
+              "nameEn": "Beaver Parking",
+              "nameFr": "Stationnement Beaver",
+              "type": "Point",
+              "group": "R",
+              "isOpen": true,
+              "isOpenYesterday": true,
+              "commentEn": "<p>A FREE Parking Permit for your vehicle dashboard accompanies your Winter Permit. National Park Pass Required.</p><p>\n<td class=\"xl66\" style=\"height: 102.0pt; width: 140pt;\" width=\"187\" height=\"136\">A <strong>Beaver Overnight Parking Permit</strong> is available at the Rogers Pass Discovery Centre for skiers wishing to overnight in adjacent Winter Unrestricted Areas.</td>\n</p>",
+              "commentFr": "<p>FR - A FREE Parking Permit for your vehicle dashboard accompanies your Winter Permit. National Park Pass Required.</p><p>\n<td class=\"xl66\" style=\"height: 102.0pt; width: 153pt;\" width=\"204\" height=\"136\">Les skieurs qui souhaitent passer la nuit dans les zones adjacentes &agrave; acc&egrave;s non restreint en hiver doivent se procurer un permis de stationnement de nuit pour le stationnement Beaver au Centre de la d&eacute;couverte du Col-Rogers.</td>\n</p>",
+              "sortOrder": 104
+          },
+          "geometry": {
+              "coordinates": [
+                  -117.4429,
+                  51.36732
+              ],
+              "type": "Point"
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Parking:75b6c01f-61c9-4f32-8a2c-9218518c0326",
+              "nameEn": "Stone Arch Parking",
+              "nameFr": "Stationnement Arche-Pierre",
+              "type": "Point",
+              "group": "R",
+              "isOpen": true,
+              "isOpenYesterday": true,
+              "commentEn": "<p>A FREE Parking Permit for your vehicle dashboard accompanies your Winter Permit. National Park Pass Required.</p><p>Overnight parking is not permitted.</p>",
+              "commentFr": "<p>FR - A FREE Parking Permit for your vehicle dashboard accompanies your Winter Permit. National Park Pass Required.</p><p>Le stationnement de nuit est interdit.</p>",
+              "sortOrder": 105
+          },
+          "geometry": {
+              "coordinates": [
+                  -117.442411,
+                  51.334093
+              ],
+              "type": "Point"
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Parking:347cec79-2d5c-4a5d-9157-94a93d697a2f",
+              "nameEn": "Hermit Parking",
+              "nameFr": "Stationnement Hermit",
+              "type": "Point",
+              "group": "R",
+              "isOpen": true,
+              "isOpenYesterday": true,
+              "commentEn": "<p>A FREE Parking Permit for your vehicle dashboard accompanies your Winter Permit. National Park Pass Required.</p><p>Overnight parking is not permitted.</p>",
+              "commentFr": "<p>FR - A FREE Parking Permit for your vehicle dashboard accompanies your Winter Permit. National Park Pass Required.</p><p>Le stationnement de nuit est interdit.</p>",
+              "sortOrder": 106
+          },
+          "geometry": {
+              "coordinates": [
+                  -117.51268,
+                  51.313945
+              ],
+              "type": "Point"
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Parking:35af4bed-ba38-4cfa-96ac-c24940f76a59",
+              "nameEn": "Rogers Pass Discovery Centre Parking",
+              "nameFr": "Stationnement du Centre de la découverte du Col-Rogers",
+              "type": "Point",
+              "group": "U",
+              "isOpen": true,
+              "isOpenYesterday": true,
+              "commentEn": "<p>National Park Pass Required.</p><p>Overnight parking is not permitted.</p>",
+              "commentFr": "<p>FR - National Park Pass Required.</p><p>Le stationnement de nuit est interdit.</p>",
+              "sortOrder": 107
+          },
+          "geometry": {
+              "coordinates": [
+                  -117.521749,
+                  51.30229
+              ],
+              "type": "Point"
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Parking:42e76f0d-9341-45de-aac4-64213eee1a5e",
+              "nameEn": "NRC Gully Parking",
+              "nameFr": "Stationnement Couloir-NRC",
+              "type": "Point",
+              "group": "R",
+              "isOpen": false,
+              "isOpenYesterday": false,
+              "commentEn": "<p>A FREE Parking Permit for your vehicle dashboard accompanies your Winter Permit. National Park Pass Required.</p><p>Overnight parking is not permitted.</p>",
+              "commentFr": "<p>FR - A FREE Parking Permit for your vehicle dashboard accompanies your Winter Permit. National Park Pass Required.</p><p>Le stationnement de nuit est interdit.</p>",
+              "sortOrder": 108
+          },
+          "geometry": {
+              "coordinates": [
+                  -117.5147,
+                  51.29
+              ],
+              "type": "Point"
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Parking:760784dd-ae6d-4b66-8d2e-b0770f17be19",
+              "nameEn": "Illecillewaet Valley Parking",
+              "nameFr": "Stationnement Asulkan",
+              "type": "Point",
+              "group": "U",
+              "isOpen": true,
+              "isOpenYesterday": true,
+              "commentEn": "<p>National Park Pass Required.</p><p><strong> Overnight parking</strong> at the Illecillewaet Valley Trailhead is only available for visitors staying at huts operated by the Alpine Club of Canada.</p>",
+              "commentFr": "<p>FR - National Park Pass Required.</p><p><strong> Le stationnement de nuit</strong> au point de d&eacute;part du sentier de la Vall&eacute;e-de-l&rsquo;Illecillewaet est r&eacute;serv&eacute; aux visiteurs qui passent la nuit dans les refuges exploit&eacute;s par le Club alpin du Canada.</p>",
+              "sortOrder": 109
+          },
+          "geometry": {
+              "coordinates": [
+                  -117.50591,
+                  51.268278
+              ],
+              "type": "Point"
+          }
+      },
+      {
+          "properties": {
+              "group": "R",
+              "sortOrder": 110,
+              "nameEn": "Loop Parking",
+              "nameFr": "Stationnement Loop",
+              "commentEn": "<p>A FREE Parking Permit for your vehicle dashboard accompanies your Winter Permit. National Park Pass Required.</p><p>Overnight parking is not permitted.</p>",
+              "commentFr": "<p>FR - A FREE Parking Permit for your vehicle dashboard accompanies your Winter Permit. National Park Pass Required.</p><p>Le stationnement de nuit est interdit.</p>",
+              "isOpen": true,
+              "isOpenYesterday": true,
+              "centerCoordinates": null,
+              "id": "Parking:c7433327-8f9a-4155-a7b9-046fa67f9613"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -117.53774,
+                  51.259585
+              ]
+          },
+          "type": "Feature"
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Parking:f817faf2-273c-4294-b12d-363db7b6d14c",
+              "nameEn": "Bostock Parking",
+              "nameFr": "Stationnement Bostock",
+              "type": "Point",
+              "group": "R",
+              "isOpen": true,
+              "isOpenYesterday": true,
+              "commentEn": "<p>A FREE Parking Permit for your vehicle dashboard accompanies your Winter Permit. National Park Pass Required.</p><p>A <strong>Bostock Overnight Parking Permit</strong> is available at the Rogers Pass Discovery Centre for skiers wishing to overnight in adjacent Winter Unrestricted Areas.</p>",
+              "commentFr": "<p>FR - A FREE Parking Permit for your vehicle dashboard accompanies your Winter Permit. National Park Pass Required.</p><p>\n<td class=\"xl65\" style=\"height: 135.0pt; width: 153pt;\" width=\"204\" height=\"180\">Les skieurs qui souhaitent passer la nuit dans les secteurs adjacents &agrave; acc&egrave;s non restreint doivent se procurer, au Centre de la d&eacute;couverte du Col-Rogers, un permis de stationnement de nuit pour le stationnement du sentier du Ruisseau-Bostock.</td>\n</p>",
+              "sortOrder": 111
+          },
+          "geometry": {
+              "coordinates": [
+                  -117.66958,
+                  51.230167
+              ],
+              "type": "Point"
+          }
+      },
+      {
+          "properties": {
+              "group": "R",
+              "sortOrder": 112,
+              "nameEn": "New Parking Lot",
+              "nameFr": "Nouveau Parking",
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": null,
+              "id": "Parking:2f31b154-e8ac-424e-a40c-86c39a8dabf4"
+          },
+          "type": "Feature",
+          "geometry": {
+              "coordinates": [
+                  0,
+                  0
+              ],
+              "type": "Point"
+          }
+      }
+  ],
+  "webcams": [
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Webcam:556e2328-51cb-4f49-a560-0ff4224a7e30",
+              "nameEn": "Abbott",
+              "nameFr": "Abbott",
+              "type": "Point",
+              "group": "R",
+              "isOpen": true,
+              "isOpenYesterday": true,
+              "commentEn": "",
+              "commentFr": "",
+              "url": "https://www.pc.gc.ca/images/RemoteCamera/sarnif/Abbott/Landscape.jpg",
+              "sortOrder": 113,
+              "descEn": "View from Mt. Abbott looking east at the Sir Donald Range",
+              "descFr": "Vue à partir du mont Abbott, regardant vers l’est en direction du mont Sir Donald.",
+              "urls": [
+                  "https://www.pc.gc.ca/images/RemoteCamera/sarnif/Abbott/Landscape.jpg",
+                  "https://www.pc.gc.ca/images/RemoteCamera/sarnif/Abbott/Zoom.jpg",
+                  ""
+              ],
+              "direction": 330
+          },
+          "geometry": {
+              "coordinates": [
+                  -117.511493,
+                  51.251891
+              ],
+              "type": "Point"
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Webcam:fdfbcb4fb5a3cc1de91ccbcc510444d6",
+              "nameEn": "Macdonald",
+              "nameFr": "Macdonald",
+              "type": "Point",
+              "group": "R",
+              "isOpen": true,
+              "isOpenYesterday": true,
+              "commentEn": "",
+              "commentFr": "",
+              "url": "https://www.pc.gc.ca/images/RemoteCamera/sarnif/MacDonald/Landscape.jpg",
+              "sortOrder": 114,
+              "descEn": "View from Mt. Macdonald's west shoulder looking west towards Connaught Creek",
+              "descFr": "Vue à partir de l’épaulement ouest du mont Macdonald, regardant vers l'ouest en direction du ruisseau Connaught.",
+              "urls": [
+                  "https://www.pc.gc.ca/images/RemoteCamera/sarnif/MacDonald/Landscape.jpg",
+                  "https://www.pc.gc.ca/images/RemoteCamera/sarnif/MacDonald/Zoom.jpg",
+                  ""
+              ],
+              "direction": 170
+          },
+          "geometry": {
+              "coordinates": [
+                  -117.502752,
+                  51.307452
+              ],
+              "type": "Point"
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "id": "Webcam:fdfbcb4fb5a3cc1de91ccbcc51049daa",
+              "nameEn": "Fidelity",
+              "nameFr": "Fidelity",
+              "type": "Point",
+              "group": "R",
+              "isOpen": true,
+              "isOpenYesterday": true,
+              "commentEn": "",
+              "commentFr": "",
+              "url": "https://www.pc.gc.ca/images/remotecamera/sarnif/fidelity/landscape.jpg",
+              "sortOrder": 115,
+              "descEn": "View from the west end of Glacier National Park looking east towards Rogers Pass",
+              "descFr": "Vue à partir de l’extrémité ouest du parc national des Glaciers, regardant vers l’est en direction du col Rogers.",
+              "urls": [
+                  "https://www.pc.gc.ca/images/remotecamera/sarnif/fidelity/landscape.jpg",
+                  "https://www.pc.gc.ca/images/remotecamera/sarnif/fidelity/zoom.jpg",
+                  "https://www.pc.gc.ca/images/remotecamera/sarnif/fidelity/snowstake.jpg"
+              ],
+              "direction": 350
+          },
+          "geometry": {
+              "coordinates": [
+                  -117.701188,
+                  51.236805
+              ],
+              "type": "Point"
+          }
+      },
+      {
+          "properties": {
+              "group": "R",
+              "sortOrder": 116,
+              "nameEn": "Major Rogers",
+              "nameFr": "Major Rogers",
+              "commentEn": "",
+              "commentFr": "",
+              "isOpen": true,
+              "iconPrefix": "",
+              "centerCoordinates": null,
+              "url": "",
+              "urls": [
+                  "https://www.pc.gc.ca/images/remotecamera/sarnif/MajorRogers/Snowstake.jpg",
+                  "",
+                  ""
+              ],
+              "id": "Webcam:9563b66e-7e79-4d7c-9594-74c946b9b8e7"
+          },
+          "type": "Feature",
+          "geometry": {
+              "coordinates": [
+                  -117.517367,
+                  51.306284
+              ],
+              "type": "Point"
+          }
+      }
+  ]
+}
