@@ -62,7 +62,7 @@ def index():
                 postsuccess = 'posted'
         # Redirects with error flash
             else:
-                flash('This number has already been signed up for tomorrow\'s update!', 'error')
+                flash('This number has already been signed up for SMS updates!', 'error')
                 return redirect(url_for('index'))
         else:
             flash('Error: Phone number doesn\'t exist or incorrect format. Please try again!', 'error')
