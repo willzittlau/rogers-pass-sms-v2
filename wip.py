@@ -4,15 +4,14 @@ import datetime
 from dateutil import tz
 #keys: ['areas'], ['parkingLots']. sub keys: ['properties']: ['nameEn'], ['isOpen'], ['id'], ['parentFeatureId']
 tz = tz.gettz('America/Vancouver')
-date = datetime.datetime.now(tz).strftime('%Y-%m-%d')
-
 class WRA:  
     def __init__(self, name, isOpen, wraID):
         self.name = name
         self.isOpen = isOpen
         self.wraID = wraID
 
-def getStatus(date):
+def getStatus():
+    date = datetime.datetime.now(tz).strftime('%Y-%m-%d')
     data=requests.get('https://www.pc.gc.ca/apps/rogers-pass/data/publish-%s' %date).json()
     # Not available:
     if data == {'error': 'not_found', 'reason': 'missing'}:
@@ -118,4 +117,4 @@ def getStatus(date):
                     + '\n' + closedZone[:-2] + '\n' + openParking[:-2]
                     + '\n' + closedParking[:-2])
 
-getStatus(date)
+getStatus()

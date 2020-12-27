@@ -3,6 +3,8 @@ import requests
 import datetime
 from dateutil import tz
 #keys: ['areas'], ['parkingLots']. sub keys: ['properties']: ['nameEn'], ['isOpen'], ['id'], ['parentFeatureId']
+tz = tz.gettz('America/Vancouver')
+
 class WRA:  
     def __init__(self, name, isOpen, wraID):
         self.name = name
@@ -12,13 +14,16 @@ class WRA:
 def get_status():
     from app import db
     from models import Info
-    tz = tz.gettz('America/Vancouver')
     date = datetime.datetime.now(tz).strftime('%Y-%m-%d')
     data=requests.get('https://www.pc.gc.ca/apps/rogers-pass/data/publish-%s' %date).json()
     # Not available:
     if data == {'error': 'not_found', 'reason': 'missing'}:
         output = 'Info for today is not available'
-        return output
+        status_date = datetime.datetime.utcnow().date()
+        # Append to dB
+        rpdata = Info(output, status_date)
+        db.session.add(rpdata)
+        db.session.commit()
     else: 
         # Date 
         rawDate = data['validFrom']['PST'].split('T')[0]
