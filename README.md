@@ -1,5 +1,5 @@
 # Rogers Pass Winter Restricted Area Status SMS V2
-**For a live demo, please visit https://rogerspass-sms.herokuapp.com/**
+**For a live demo, please visit and sign up at https://rogerspass-sms.herokuapp.com/**
 
 Rogers Pass Winter Restricted Area Status SMS is a basic site which records a user's phone number and texts them the next morning with the updated Winter Restricted Areas in Roger's Pass BC. When going skiing in the pass, it can be frustrating trying to open and navigate the government app while on the highway in and out of service trying to figure out where you can ski that morning. This app streamlines the process into a convenient SMS alert.
 
