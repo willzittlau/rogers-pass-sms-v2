@@ -1,4 +1,4 @@
-from status import get_status
+from status import get_status, get_status_now
 import datetime
 import os
 from flask_sqlalchemy import SQLAlchemy
@@ -27,7 +27,7 @@ def send_hello(number):
     message = client.messages.create(
         from_=os.environ['TWILIO_NUMBER'],
         to=number,
-        body="Thank you for signing up for the Roger's Pass SMS update service. To start receiving daily updates, reply with \"YES\". Standard message rates apply."
+        body="Welcome to Roger's Pass SMS updates. To receive an update, reply with \"UPDATE\". Standard message rates apply."
     )
 
 def confirm_in():
@@ -39,5 +39,9 @@ def confirm_out():
     return body
 
 def unknown_resp():
-    body="Sorry, that was an unknown response. To start receiving daily updates, reply with \"YES\". To stop receiving updates, reply with \"NO\"."
+    body="Sorry, that was an unknown response. To receive an update, reply with \"UPDATE\"."
+    return body
+
+def update_now():
+    body = get_status_now()
     return body

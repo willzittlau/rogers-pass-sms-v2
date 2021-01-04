@@ -1,41 +1,80 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Rogers Pass Status SMS</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/base-min.css">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-min.css">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='favicon.ico') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+      integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/purecss@2.0.3/build/base-min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/purecss@2.0.3/build/grids-min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
     <div class="wrapper">
-    <div class="header-image">
+      <div class="header-image">
         <div class="header-text">
-            <h1> Rogers Pass Winter Restricted Area Status SMS</h1>
+          <h1>Rogers Pass Winter Restricted Area Status SMS</h1>
         </div>
-    </div>
-    <h3>Enter your phone number in the form below to sign up for daily updates about the Rogers Pass Winter Permit System</h3>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% for category, message in messages %}
-            <div class="{{ category }}">{{ message }}</div>
-        {% endfor %}
-    {% endwith %}
-    {% if not postsuccess%}
-    <div class="input">
+      </div>
+      <h3>
+        Enter your phone number in the form below to get updates about the
+        Rogers Pass Winter Permit System
+      </h3>
+      {% with messages = get_flashed_messages(with_categories=true) %} {% for
+      category, message in messages %}
+      <div class="{{ category }}">{{ message }}</div>
+      {% endfor %} {% endwith %} {% if not postsuccess%}
+      <div class="input">
         <form class="pure-form" method="post" action="/">
-            <input type="tel" class="pure-input-rounded" name="number" autocomplete= "tel" required placeholder="ex. 123-456-7890" >
-            <button type="submit" class="button-custom pure-button">Submit</button>
+          <input
+            type="tel"
+            class="pure-input-rounded"
+            name="number"
+            autocomplete="tel"
+            required
+            placeholder="ex. 123-456-7890"
+          />
+          <button type="submit" class="button-custom pure-button">
+            Submit
+          </button>
         </form>
-    </div>
-    {% endif %}
-    {% if postsuccess%}
-        <p><b>Success! You will be notified tomorrow AM.</b></p>
-    {% endif %}
+      </div>
+      {% endif %} {% if postsuccess%}
+      <p><b>Success! You should receive a message shortly.</b></p>
+      {% endif %}
+      <div class="disclaimer">
+        <p>
+          ***RogersPass-SMS is powered by information from Parks Canada's Rogers
+          Pass data. There is no affiliation between this service and Parks
+          Canada. The source code for this project can be found
+          <a href="https://github.com/willzittlau/rogers-pass-sms-v2">here.</a
+          > Feel free to contribute.
+        </p>
+      </div>
     </div>
     {% include "footer.html" %}
-</body>
+  </body>
 </html>

@@ -77,3 +77,8 @@ body {
     flex: 1 0 auto;
     border-bottom: 1px solid black
 }
+
+.disclaimer{
+    text-align: center;
+    padding-top: 32px;
+}

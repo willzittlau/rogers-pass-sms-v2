@@ -12,14 +12,14 @@ import time
 import re
 import platform
 # import .py's
-from sms import send_update, confirm_in, confirm_out, send_hello, unknown_resp
+from sms import send_update, confirm_in, confirm_out, send_hello, unknown_resp, update_now
 from status import get_status
 from filters import is_valid_number, format_e164, numregex
 
 # Set up app and environment
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['PROD_DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['LOCAL_DATABASE_URL']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 os.environ['TZ'] = 'UTC'
 if platform.system()!="Windows":
@@ -53,7 +53,7 @@ def index():
             # Check if user has already signed up for the udpate or not
             if bool(User.query.filter_by(number=number).first()) == False:
             # Append to dB
-                status = ''
+                status = "no"
                 data = User(number, status, signup_date)
                 db.session.add(data)
                 db.session.commit()
@@ -108,7 +108,25 @@ def sms_reply():
         resp = MessagingResponse()
         resp.message(confirm_out())
         return str(resp)
+    if message_body == "update":
+        # Check if name entry exists
+        if bool(User.query.filter_by(number=number).first()) == True:
+            pass
+        else:
+            data = User(number, "no", message_date)
+            db.session.add(data)
+            db.session.commit()
+        resp = MessagingResponse()
+        resp.message(update_now())
+        return str(resp)
     else:
+        # Check if name entry exists
+        if bool(User.query.filter_by(number=number).first()) == True:
+            pass
+        else:
+            data = User(number, "no", message_date)
+            db.session.add(data)
+            db.session.commit()
         resp = MessagingResponse()
         resp.message(unknown_resp())
         return str(resp)
