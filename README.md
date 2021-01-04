@@ -1,9 +1,9 @@
 # Rogers Pass Winter Restricted Area Status SMS V2
-**For a live demo of V1, please visit https://rogers-pass.herokuapp.com/**
+**For a live demo, please visit and sign up at https://rogerspass-sms.herokuapp.com/**
 
 Rogers Pass Winter Restricted Area Status SMS is a basic site which records a user's phone number and texts them the updated Winter Restricted Areas status in Roger's Pass BC. When going skiing in the pass, it can be frustrating trying to open and navigate the government app while on the highway in and out of service trying to figure out where you can ski that morning. This app streamlines the process into a convenient SMS alert.
 
-It's written using Flask in python3, and deployed to Heroku using Postgres as the database. Twilio handles the SMS messaging and Selenium is used to pull the daily updated data. The front end is HTML with some Jinja for dyanmic message flashing with minimal CSS. V2 enables 2 way communication once a user has been signed up.
+It's written using Flask in python3, and deployed to Heroku using Postgres as the database. Twilio handles the SMS messaging and the public API is used to pull the daily updated data. The front end is HTML with some Jinja for dyanmic message flashing with minimal CSS. V2 enables 2 way communication once a user has been signed up.
 
 ## Disclaimer
 RogersPass-SMS is powered by information from Parks Canada's Rogers Pass data. There is no affiliation between this service and Parks Canada.
