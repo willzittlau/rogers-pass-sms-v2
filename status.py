@@ -62,8 +62,8 @@ def get_status():
         else:
             closedWRA += 'East Rogers, '
         for area in westRogers:
-            ERbool.append(area.isOpen)
-        if all(ERbool) == True:
+            WRbool.append(area.isOpen)
+        if all(WRbool) == True:
             openWRA += 'West Rogers, '
         else:
             closedWRA += 'West Rogers, '
@@ -183,8 +183,8 @@ def get_status_now():
         else:
             closedWRA += 'East Rogers, '
         for area in westRogers:
-            ERbool.append(area.isOpen)
-        if all(ERbool) == True:
+            WRbool.append(area.isOpen)
+        if all(WRbool) == True:
             openWRA += 'West Rogers, '
         else:
             closedWRA += 'West Rogers, '
