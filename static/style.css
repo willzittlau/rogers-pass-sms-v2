@@ -82,5 +82,7 @@ body {
     text-align: center;
     padding-top: 32px;
     display: inline-block;
-    width: 60%
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
 }

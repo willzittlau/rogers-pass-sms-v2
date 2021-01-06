@@ -19,7 +19,7 @@ def get_status():
         'https://www.pc.gc.ca/apps/rogers-pass/data/publish-%s' % date).json()
     # Not available:
     if data == {'error': 'not_found', 'reason': 'missing'}:
-        output = 'Info for today is not available at this time. Try again later by texting \"update\" to this number.'
+        output = 'Info for today is not available at this time. Updates usually come at 7AM, and until one has been posted all areas are CLOSED. Try again later by texting \"update\" to this number.'
         status_date = datetime.datetime.utcnow().date()
         # Append to dB
         rpdata = Info(output, status_date)
@@ -144,7 +144,7 @@ def get_status_now():
         'https://www.pc.gc.ca/apps/rogers-pass/data/publish-%s' % date).json()
     # Not available:
     if data == {'error': 'not_found', 'reason': 'missing'}:
-        output = 'Info for today is not available at this time. Try again later'
+        output = 'Info for today is not available at this time. Updates usually come at 7AM, and until one has been posted all areas are CLOSED. Try again later'
         return output
     else:
         # Date
