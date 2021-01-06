@@ -81,4 +81,6 @@ body {
 .disclaimer{
     text-align: center;
     padding-top: 32px;
+    display: inline-block;
+    width: 60%
 }
