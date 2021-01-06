@@ -27,7 +27,7 @@ def send_hello(number):
     message = client.messages.create(
         from_=os.environ['TWILIO_NUMBER'],
         to=number,
-        body="Welcome to Roger's Pass SMS updates. To receive an update, reply with \"UPDATE\". Standard message rates apply."
+        body="Welcome to Roger's Pass SMS updates. This is a third party service, and you should verify with Parks Canada's resource before venturing into a WRA. To receive an update, reply with \"UPDATE\". Standard message rates apply."
     )
 
 def confirm_in():
