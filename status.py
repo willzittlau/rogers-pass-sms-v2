@@ -197,47 +197,37 @@ def get_status_now():
         else:
             closedWRA += (shaughnessy.name + ', ')
         # Zones
-        closedZone = 'Closed Areas:  '
-        openZone = 'Open Areas:  '
+        closedZone = 'Special Closures:  '
         for area in data['areas']:
+            # Logic check: parent is open & area is closed = special closure
             try:
                 if (area['properties']['parentFeatureId'] == shaughnessy.wraID):
-                    if shaughnessy.isOpen == True and area['properties']['isOpen'] == True:
-                        openZone += (area['properties']['nameEn'] + ', ')
-                    else:
+                    if shaughnessy.isOpen == True and area['properties']['isOpen'] == False:
                         closedZone += (area['properties']['nameEn'] + ', ')
                 if (area['properties']['parentFeatureId'] == eastRogersNorth.wraID):
-                    if eastRogersNorth.isOpen == True and area['properties']['isOpen'] == True:
-                        openZone += (area['properties']['nameEn'] + ', ')
-                    else:
+                    if eastRogersNorth.isOpen == True and area['properties']['isOpen'] == False:
                         closedZone += (area['properties']['nameEn'] + ', ')
                 if (area['properties']['parentFeatureId'] == eastRogersSouth.wraID):
-                    if eastRogersSouth.isOpen == True and area['properties']['isOpen'] == True:
-                        openZone += (area['properties']['nameEn'] + ', ')
-                    else:
+                    if eastRogersSouth.isOpen == True and area['properties']['isOpen'] == False:
                         closedZone += (area['properties']['nameEn'] + ', ')
                 if (area['properties']['parentFeatureId'] == westRogersWest.wraID):
-                    if westRogersWest.isOpen == True and area['properties']['isOpen'] == True:
-                        openZone += (area['properties']['nameEn'] + ', ')
-                    else:
+                    if westRogersWest.isOpen == True and area['properties']['isOpen'] == False:
                         closedZone += (area['properties']['nameEn'] + ', ')
                 if (area['properties']['parentFeatureId'] == westRogersSouth.wraID):
-                    if westRogersSouth.isOpen == True and area['properties']['isOpen'] == True:
-                        openZone += (area['properties']['nameEn'] + ', ')
-                    else:
+                    if westRogersSouth.isOpen == True and area['properties']['isOpen'] == False:
                         closedZone += (area['properties']['nameEn'] + ', ')
                 if (area['properties']['parentFeatureId'] == westRogersNorthEast.wraID):
-                    if westRogersNorthEast.isOpen == True and area['properties']['isOpen'] == True:
-                        openZone += (area['properties']['nameEn'] + ', ')
-                    else:
+                    if westRogersNorthEast.isOpen == True and area['properties']['isOpen'] == False:
                         closedZone += (area['properties']['nameEn'] + ', ')
                 if (area['properties']['parentFeatureId'] == fortitude.wraID):
-                    if fortitude.isOpen == True and area['properties']['isOpen'] == True:
-                        openZone += (area['properties']['nameEn'] + ', ')
-                    else:
+                    if fortitude.isOpen == True and area['properties']['isOpen'] == False:
                         closedZone += (area['properties']['nameEn'] + ', ')
             except:
                 pass
+        # Add special Closure to start of message
+        if closedZone != 'Special Closures:  ':
+            closedZone = closedZone[:-2] + ' - Please check Parks Canada for more details!'
+            titleStr += + '\n' + closedZone
         # Parking
         closedParking = 'Closed Parking:  '
         openParking = 'Open Parking:  '
@@ -247,8 +237,8 @@ def get_status_now():
             else:
                 closedParking += (parking['properties']['nameEn'] + ', ')
         # Concat and save results for dB
-        status = (titleStr + '\n'+ '\n' + openWRA[:-2]
-                    + '\n'+ '\n' + closedWRA[:-2] + '\n'+ '\n' + openZone[:-2]
-                    + '\n'+ '\n' + closedZone[:-2] + '\n'+ '\n' + openParking[:-2]
-                    + '\n'+ '\n' + closedParking[:-2])
+        status = (titleStr + '\n' + openWRA[:-2]
+                    + '\n' + closedWRA[:-2] 
+                    + '\n' + openParking[:-2]
+                    + '\n' + closedParking[:-2])
         return status

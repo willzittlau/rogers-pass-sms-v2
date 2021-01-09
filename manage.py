@@ -8,10 +8,8 @@ manager = Manager(app)
 
 @manager.command
 def both():
-  # Free tier scheduler only has hourly CRON tasks, this will ensure SMS is sent at 7:15 AM
-    time.sleep(840)
-    get_status()
-    time.sleep(60)
+  # Free tier scheduler only has hourly CRON tasks, this will ensure SMS is sent at 7:05 AM
+    time.sleep(300)
     send_update()
 
 if __name__ == "__main__":

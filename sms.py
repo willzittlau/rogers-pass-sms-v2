@@ -10,9 +10,10 @@ def send_update():
     from app import db
     from models import Info, User
     # Return contents for sms message
-    todays_date = datetime.datetime.utcnow().date()
-    daily_update_sms = db.session.query(Info.status).filter(Info.status_date == todays_date).limit(1).scalar()
-    daily_update_sms = daily_update_sms.replace('\n', '\n\n')
+    # todays_date = datetime.datetime.utcnow().date()
+    # daily_update_sms = db.session.query(Info.status).filter(Info.status_date == todays_date).limit(1).scalar()
+    # daily_update_sms = daily_update_sms.replace('\n', '\n\n')
+    daily_update_sms = get_status_now()
     # Find list of numbers to send sms to
     daily_numbers = User.query.filter_by(status="yes").all()
     for number in daily_numbers:
@@ -35,7 +36,7 @@ def confirm_in():
     return body
 
 def confirm_out():
-    body="You have successfully opted out of daily updates. To opt back in, reply with \"YES\"."
+    body="You have successfully opted out of daily updates. To opt back in, reply with \"YES\". To block all future messages, reply with \"STOP\"."
     return body
 
 def unknown_resp():
