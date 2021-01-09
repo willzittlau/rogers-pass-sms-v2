@@ -237,8 +237,9 @@ def get_status_now():
             else:
                 closedParking += (parking['properties']['nameEn'] + ', ')
         # Concat and save results for dB
-        status = (titleStr + '\n' + openWRA[:-2]
-                    + '\n' + closedWRA[:-2] 
-                    + '\n' + openParking[:-2]
-                    + '\n' + closedParking[:-2])
+        status = (titleStr
+                    + '\n' + '\n' + openWRA[:-2]
+                    + '\n' + '\n' + closedWRA[:-2] 
+                    + '\n' + '\n' + openParking[:-2]
+                    + '\n' + '\n' + closedParking[:-2])
         return status
